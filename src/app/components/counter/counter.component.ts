@@ -16,7 +16,8 @@ export class CounterComponent {
 
     // Implementation
     constructor(private store: Store<{ count: number }>) {
-        this.count$ = this.store.pipe(select('count'));
+        // this.count$ = this.store.pipe(select('count'));
+        this.count$ = this.store.select('count');
     }
 
     increment() {
