@@ -1,4 +1,4 @@
-# NgrxTest
+# NgRx Tutorial
 
 Angular version: 9.1.4  
 NgRx version: 9.1.0
