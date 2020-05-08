@@ -1,0 +1,19 @@
+<h2>Example rest call using NgRx Effects:</h2>
+
+<div id="data-container">
+    <span>status: {{ employees.status }} </span>
+    <div id="data-content">data: [
+        <span id="employee-data" *ngFor="let employee of employees.data; let i = index">
+            {{ i }}: {{ '{' }}
+                <span>id: {{ employee.id }}</span>
+                <span>employee_name: {{ employee.employee_name }}</span>
+                <span>employee_salary: {{ employee.employee_salary }}</span>
+                <span>employee_age: {{ employee.employee_age }}</span>
+                <span>profile_image: {{ employee.profile_image }}</span>
+            {{ '},' }}
+        </span>
+    ]</div>
+</div>
+
+<br />
+<button (click)="getEmployees()">Get Employees</button>

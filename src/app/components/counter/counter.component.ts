@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { increment, decrement, reset } from '@app/data-flow/actions/counter.actions';
+import { CounterActions } from '@app/exports/actions';
 
 @Component({
     selector: 'app-counter',
@@ -16,20 +16,18 @@ export class CounterComponent {
 
     // Implementation
     constructor(private store: Store<{ count: number }>) {
-        // this.count$ = this.store.pipe(select('count'));
-        this.count$ = this.store.select('count');
+        this.count$ = this.store.pipe(select('count'));
     }
 
     increment() {
-        this.store.dispatch(increment());
+        this.store.dispatch(CounterActions.increment());
     }
 
     decrement() {
-        this.store.dispatch(decrement());
+        this.store.dispatch(CounterActions.decrement());
     }
 
     reset() {
-        this.store.dispatch(reset());
+        this.store.dispatch(CounterActions.reset());
     }
-
 }

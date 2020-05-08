@@ -1,26 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 // Components
-import { AppComponent, CounterComponent } from '@app/exports/components';
+import { AppComponent } from '@app/exports/components';
 
-// Reducers
-import { counterReducer } from '@app/data-flow/reducers/counter.reducer';
-
+// Modules
+import { ComponentsModule, ServicesModule } from '@app/exports/modules';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CounterComponent
-  ],
-  imports: [
-    BrowserModule,
-    StoreModule.forRoot({ count: counterReducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25 })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
+        StoreDevtoolsModule.instrument({ maxAge: 25 }),
+        HttpClientModule,
+        ComponentsModule,
+        ServicesModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
