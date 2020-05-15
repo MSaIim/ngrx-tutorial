@@ -15,7 +15,7 @@ export class CounterComponent {
     count$: Observable<number>;
 
     // Implementation
-    constructor(private store: Store<{ count: number }>) {
+    constructor(private readonly store: Store<{ count: number }>) {
         this.count$ = this.store.pipe(select('count'));
     }
 
